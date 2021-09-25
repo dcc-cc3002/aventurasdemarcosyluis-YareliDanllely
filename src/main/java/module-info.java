@@ -1,8 +1,9 @@
 module com.example.aventurasdemarcoyluis {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.junit.jupiter.api;
 
 
-    opens com.example.aventurasdemarcoyluis to javafx.fxml;
-    exports com.example.aventurasdemarcoyluis;
+    opens character.cc3002 to javafx.fxml;
+    exports character.cc3002;
 }
