@@ -1,16 +1,18 @@
-package character.cc3002;
+package character;
+
+import interfaces.IMainCharacter;
 
 /**
  *Se creo una clase abstracta que contiene los atributos que se solicitan en
  *el enunciado de la tarea, es decir nivel,poder de ataque, defensa, puntos
  /** de vida y puntos de ataque */
 
-public abstract class AbstractMainCharacter extends character.cc3002.AbstractCharacter implements character.cc3002.IMainCharacter {
-    private int attackpoints;
+public abstract class AbstractMainCharacter extends AbstractCharacter implements IMainCharacter {
+    private int attackPoints;
 
-    public AbstractMainCharacter(int level, int power, int defence, double hitpoints, int hitpointmax, int attackpoints) {
-        super(level, power, defence, hitpoints, hitpointmax);
-        this.attackpoints= attackpoints; }
+    public AbstractMainCharacter(int level, int power, int defence, int hitPoints, int hitPointMax, int attackPoints) {
+        super(level, power, defence, hitPoints, hitPointMax);
+        this.attackPoints= attackPoints; }
 
 
     /**
@@ -27,7 +29,8 @@ public abstract class AbstractMainCharacter extends character.cc3002.AbstractCha
      * en este caso se le agrega el 10% de la cantidad total
      */
 
-    public void takeItemRedMushroom() { this.setHitpoints(this.getHitpoints()+getHitpointmax()*0.1); }
+    public void takeItemRedMushroom() { double  power = this.getHitPoints()+getHitPointMax()*0.1;
+        this.setHitPoints((int) power); }
 
     /**
      * Se creo el metodo que refleja cuando el personaje toma un item
@@ -35,7 +38,7 @@ public abstract class AbstractMainCharacter extends character.cc3002.AbstractCha
      * sumadole 3
      */
 
-    public void takeItemHoneySyrup() { this.setAttackpoints(this.getAttackpoints()+3); }
+    public void takeItemHoneySyrup() { this.setAttackPoints(this.getAttackPoints()+3); }
 
 
     /**
@@ -44,15 +47,15 @@ public abstract class AbstractMainCharacter extends character.cc3002.AbstractCha
      * @return puntos de ataque
      */
 
-    public int getAttackpoints() {
-        return attackpoints;
+    public int getAttackPoints() {
+        return attackPoints;
     }
 
     /**
      *
-     * @param attackpoints puntos de ataque
+     * @param attackPoints puntos de ataque
      */
-    public void setAttackpoints(int attackpoints) { this.attackpoints= attackpoints; }
+    public void setAttackPoints(int attackPoints) { this.attackPoints= attackPoints; }
 
 }
 

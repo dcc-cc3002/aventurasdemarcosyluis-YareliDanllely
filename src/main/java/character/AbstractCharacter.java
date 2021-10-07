@@ -1,4 +1,6 @@
-package character.cc3002;
+package character;
+
+import java.util.Random;
 
 /**
  * Creamos una clase abstracta que contiene a todos los atributos basicos
@@ -6,33 +8,56 @@ package character.cc3002;
  */
 
 public abstract class AbstractCharacter {
+    private Random random;
     private int level;
     private int power;
     private int defence;
-    private double hitpoints;
-    private int hitpointmax;
-    private boolean iamalive;
+    private int hitPoints;
+    private int hitPointMax;
+    private boolean iAmAlive;
 
     /**
      *Creamos constructor
      * @param level nivel de vida
      * @param power poder
      * @param defence defensa
-     * @param hitpoints puntos de vida
-     * @param hitpointmax puntos de vida maximo
+     * @param hitPoints puntos de vida
+     * @param hitPointMax puntos de vida maximo
      */
-    public AbstractCharacter(int level, int power, int defence, double hitpoints, int hitpointmax) {
+    public AbstractCharacter(int level, int power, int defence, int hitPoints, int hitPointMax) {
         this.level = level;
         this.power = power;
         this.defence = defence;
-        this.hitpoints = hitpoints;
-        this.hitpointmax = hitpointmax;
-        this.iamalive = true;}
+        this.hitPoints= hitPoints;
+        this.hitPointMax=hitPointMax;
+        this.iAmAlive = true;
+        random = new Random();
+    }
+
+    /**
+     * Se creó una método que aplicara una semilla
+     * a la instancia random
+     * @param seed semilla
+     */
+    public void setSeed( int seed){
+        random.setSeed(seed);
+    }
+
+    /**
+     *Se devolvera el siguente valor int
+     * pseudoaleatorio en un rango de [0-2]
+     * @return valor aletorio
+     */
+
+    public int roll() {
+      return random.nextInt(4);
+    }
 
     /**
      * Se creo un metodo que permitira cambiar el estado imdead del personaje segun su numero de vida
      */
-    public void canIattack() { if ( this.getHitpoints()==0 ) {this.setIamalive(false);} else {this.setIamalive(true);}}
+
+    public void canIattack() { if ( this.getHitPoints()==0 ) {this.setiAmAlive(false);} else {this.setiAmAlive(true);}}
 
 
     /**
@@ -63,18 +88,16 @@ public abstract class AbstractCharacter {
      * @return devolviendo dicho valor
      */
 
-    public double getHitpoints() {
-        return hitpoints;
+    public int getHitPoints() {
+        return hitPoints;
     }
 
     /**
      * Se creo el getter de la cantidad de vida del personaje
-     * @return hitpointmax
+     * @return hitPointmax
      */
 
-    public int getHitpointmax() {
-        return hitpointmax;
-    }
+    public int getHitPointMax() {return hitPointMax;}
 
 
     /**
@@ -98,41 +121,40 @@ public abstract class AbstractCharacter {
      * @param defence defensa
      */
 
-    public void setDefence(int defence) {
-        this.defence = defence;
-    }
+    public void setDefence(int defence) { this.defence = defence; }
 
     /**
      * Se creo el setter de la cantidad de puntos de vida que tiene el personaje
      * ademas se puso una restriccion para cuando se quiera asignar un valor negativo
      * se cambie este por cero
-     * @param hitpoints puntos de vida
+     * @param hitPoints puntos de vida
      */
 
-    public void setHitpoints(double hitpoints) { if (hitpoints<0) { this.hitpoints=0; }
-        else { this.hitpoints = hitpoints; }
+    public void setHitPoints(int hitPoints) { if (hitPoints<0) { this.hitPoints=0; }
+        else { this.hitPoints = hitPoints; }
     }
+
 
     /**
      * Se creo el setter de la cantidad de puntos de vida maxima
      *      * que puede tener el personaje
-     * @param hitpointmax puntos de vida maximo
+     * @param hitPointMax puntos de vida maximo
      */
-    public void setHitpointmax(int hitpointmax) {
-        this.hitpointmax = hitpointmax;
-    }
+    public void setHitPointMax(int hitPointMax) {this.hitPointMax = hitPointMax;}
 
     /**
      * Se creo el getter del atributo que refleja si el personaje esta muerto o no
-     * @param iamalive estoy vivo?
+     * @param iAmAlive estoy vivo?
      */
-    public void setIamalive(boolean iamalive) { this.iamalive = iamalive; }
+    public void setiAmAlive(boolean iAmAlive) { this.iAmAlive = iAmAlive; }
 
     /**
      * Se creo el getter del atributo que refleja si el personaje esta muerto o no
-     * @return iamalive
+     * @return iAmAlive
      */
 
-    public boolean isIamalive() { return iamalive; }
+    public boolean isiAmAlive() { this.canIattack(); return iAmAlive; }
+
+
 }
 
