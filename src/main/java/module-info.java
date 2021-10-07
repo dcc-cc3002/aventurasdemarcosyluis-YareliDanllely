@@ -4,6 +4,8 @@ module com.example.aventurasdemarcoyluis {
     requires org.junit.jupiter.api;
 
 
-    opens character.cc3002 to javafx.fxml;
-    exports character.cc3002;
+    opens character to javafx.fxml;
+    exports character;
+    exports interfaces;
+    opens interfaces to javafx.fxml;
 }

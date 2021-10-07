@@ -1,4 +1,7 @@
-package character.cc3002;
+package interfaces;
+
+import character.GoombaEnemyCharacter;
+import character.SpinyEnemycharacter;
 
 /**
  * Se creo una interface con metodos para los personaje
@@ -9,7 +12,9 @@ package character.cc3002;
 
 public interface IMainCharacter {
 
-    void receivesAttackFromBoo(BooEnemyCharacter Boo);
+    void calculateDamageFromSpiny(SpinyEnemycharacter Spiny);
+
+    void calculateDamageFromGoomba(GoombaEnemyCharacter Goomba);
 
     void receivesAttackFromSpiny(SpinyEnemycharacter Spiny);
 
