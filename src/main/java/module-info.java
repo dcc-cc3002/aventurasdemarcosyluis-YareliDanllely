@@ -4,8 +4,14 @@ module com.example.aventurasdemarcoyluis {
     requires org.junit.jupiter.api;
 
 
-    opens character to javafx.fxml;
-    exports character;
-    exports interfaces;
-    opens interfaces to javafx.fxml;
+    opens characters to javafx.fxml;
+    exports characters;
+    exports characters.maincharacter.interfaces;
+    opens characters.maincharacter.interfaces to javafx.fxml;
+    exports characters.enemies;
+    opens characters.enemies to javafx.fxml;
+    exports characters.maincharacter;
+    opens characters.maincharacter to javafx.fxml;
+    exports characters.enemies.interfaces;
+    opens characters.enemies.interfaces to javafx.fxml;
 }
