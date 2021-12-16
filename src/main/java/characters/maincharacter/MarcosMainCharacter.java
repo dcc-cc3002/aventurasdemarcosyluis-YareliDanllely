@@ -6,6 +6,8 @@ import characters.enemies.interfaces.AttackableByGoomba;
 import characters.enemies.interfaces.AttackableBySpiny;
 import characters.maincharacter.interfaces.AttackablebyMarco;
 import characters.maincharacter.interfaces.AttackOfMarco;
+import characters.visitors.IAmMarcosVisitor;
+import characters.visitors.Visitor;
 
 
 /**
@@ -58,5 +60,10 @@ public class MarcosMainCharacter extends AbstractMainCharacter implements Attack
     }
 
 
+    @Override
+    public void acceptVisitor(Visitor visitor) {
+        visitor.visitMarco(this);
+
+    }
 }
 

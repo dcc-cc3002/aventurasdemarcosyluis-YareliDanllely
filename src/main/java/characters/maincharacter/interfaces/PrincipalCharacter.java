@@ -1,6 +1,6 @@
 package characters.maincharacter.interfaces;
 
-import characters.maincharacter.items.Items;
+import characters.visitors.IAmMarcosVisitor;
 
 /**
  * Se creó una interfaz que contenga los metodos que
@@ -24,6 +24,7 @@ public interface PrincipalCharacter {
       */
 
      void useItemRedMushroom();
+
 
 
 }

@@ -4,13 +4,15 @@ import characters.enemies.interfaces.AttackOfBoo;
 import characters.enemies.interfaces.AttackableByBoo;
 import characters.maincharacter.MarcosMainCharacter;
 import characters.Character;
+import characters.visitors.AttackableByLuisVisitor;
+import characters.visitors.Visitor;
 
 /**
  * Se creo una clase asociada a Boo, que es hija de la clase abstacta
  * de los Enemigo
  */
 
-public class BooEnemyCharacter extends AbstractEnemyCharacter implements AttackOfBoo {
+public class BooEnemyCharacter extends AbstractEnemyCharacter implements AttackOfBoo  {
 
 
     /**
@@ -31,6 +33,7 @@ public class BooEnemyCharacter extends AbstractEnemyCharacter implements AttackO
     public void attack(AttackableByBoo enemy) {
         enemy.receivesAttackFromBoo(this);
     }
+
 
 
     @Override
@@ -61,5 +64,11 @@ public class BooEnemyCharacter extends AbstractEnemyCharacter implements AttackO
         else{ if ( marco.roll() == 0) { this.setHitPoints( this.getHitPoints()+0); }
               else { this.calculateDamageFromMarcoWithJump(marco); } } }
 
+
+    @Override
+    public void acceptVisitor(Visitor visitor) {
+        visitor.visitBoo(this);
+
+    }
 }
 

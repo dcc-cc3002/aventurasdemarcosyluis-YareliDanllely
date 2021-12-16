@@ -117,5 +117,6 @@ public abstract class AbstractCharacter implements Character {
 
 
 
+
 }
 

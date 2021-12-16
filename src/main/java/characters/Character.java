@@ -1,8 +1,9 @@
 package characters;
 
-public interface Character {
+import characters.visitors.IAmMarcosVisitor;
+import characters.visitors.Visitor;
 
-    boolean  equals(Object obj);
+public interface Character {
 
     /**
      * Se creo el getter del atributo que refleja si el personaje esta muerto o no
@@ -50,5 +51,18 @@ public interface Character {
      */
 
     void setHitPoints(int hitPoints);
+
+    /**
+     * Permite saber si el personame es enemigo o no
+     * @return verdadero o falso
+     */
+    boolean iAmEnemy();
+
+    /**
+     * Se creo un aceptar un visitor
+     * @param visitor
+     */
+    void acceptVisitor(Visitor visitor);
+
 
 }

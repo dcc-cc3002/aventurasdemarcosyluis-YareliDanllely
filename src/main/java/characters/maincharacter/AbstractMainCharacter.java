@@ -82,9 +82,16 @@ public abstract class AbstractMainCharacter extends AbstractCharacter implements
         return random.nextInt(4);
     }
 
+    /**
+     * Se creo un metodo que realiza cambios en los atributos de los personajes
+     * cuando este sube de nivel
+     */
     public void levelUp(){
-            double increaseHp= this.getHitPointMax()*0.15 + this.getHitPoints();
+            double increaseHp = this.getHitPointMax()*0.15 + this.getHitPoints();
             this.setHitPoints((int) increaseHp);
+
+            double increaseHpMax = this.getAttackPointsMax()*0.15+ this.getAttackPointsMax();
+            this.setHitPointMax((int) increaseHpMax);
 
             double increaseAttackpoints = this.getAttackPointsMax()*0.15 + this.getAttackPoints();
             this.setAttackPoints( (int)  increaseAttackpoints);
@@ -96,8 +103,6 @@ public abstract class AbstractMainCharacter extends AbstractCharacter implements
             this.setDefence((int) increaseDefence);
 
             this.setLevel(this.getLevel()+1); }
-
-
 
 
     @Override
@@ -155,6 +160,11 @@ public abstract class AbstractMainCharacter extends AbstractCharacter implements
      * @param baul Baul
      */
     public void setBaul(Baul baul) {this.baul = baul;}
+
+    @Override
+    public boolean iAmEnemy(){
+        return false;
+    }
 
 
 }

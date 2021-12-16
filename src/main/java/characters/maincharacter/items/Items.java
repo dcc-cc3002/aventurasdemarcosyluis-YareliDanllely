@@ -3,7 +3,7 @@ package characters.maincharacter.items;
 import characters.maincharacter.interfaces.PrincipalCharacter;
 
 /**
- * Se creó una interfaz que permitirá8 relacion
+ * Se creó una interfaz que permitirá relacion
  * los item con los personajes principales8
  */
 public interface Items {
