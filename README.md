@@ -6,8 +6,8 @@ Se creo una clase Controller que puede realizar las siguentes aaciones, crear a 
 
 Para generar el flujo del juego, se crearon fases siguiendo la siguiente logica:
 -Empieza turno
--Turno de personaje principal
--Espera de inicio de turno enemigo:
+-Turno de personaje enemigo
+-Espera de inicio de turno personaje principal.
 Donde se podrá elegir si pasar, atacar, o usar item
 -Espera para elegir enemigo a atacar
 -Espera para elegir el ataque para el enemigo
