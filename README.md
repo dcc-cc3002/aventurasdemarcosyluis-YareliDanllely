@@ -17,4 +17,4 @@ Donde se podrá elegir si pasar, atacar, o usar item
 -elegir enemigo aleatoriamente
 -atacar
 -pasar
-Lo anterior se fue conectando con el controlador para realizar un movimiento entre el controlador y las fases. Además se utilizó el patrón de diseño Visitor para saber si el personaje del turno es Marco o Luis, para ver los enemigos presentes en el turno atacables por Luis y Marco.
+Lo anterior se fue conectando con el controlador para realizar un movimiento entre el controlador y las fases. Además se utilizó el patrón de diseño Visitor para saber si el personaje del turno es Marco o Luis, para ver los enemigos presentes en el turno atacables por Luis y Marco. Ademas se utilizaron se creo una excepcion para cuando se realizaba un cambio de fase indebido.
