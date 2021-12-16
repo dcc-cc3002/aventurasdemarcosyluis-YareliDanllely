@@ -295,7 +295,7 @@ public class CharacterTest {
        Assertions.assertEquals(Goomba.getHitPoints(),19);
 
        Spiny.calculateDamageFromMarcoWithJump(Marco);
-       Assertions.assertEquals(Spiny.getHitPoints(),8);
+       Assertions.assertEquals(Spiny.getHitPoints(),10);
 
        Boo.calculateDamageFromMarcoWithJump(Marco);
        Assertions.assertEquals(Boo.getHitPoints(),6);
@@ -444,7 +444,7 @@ public class CharacterTest {
         Marco.setHitPoints(20);
         Marco.attackWithJump(Spiny);
         Assertions.assertEquals(Marco.getAttackPoints(),12);
-        Assertions.assertEquals(Spiny.getHitPoints(),8);
+        Assertions.assertEquals(Spiny.getHitPoints(),10);
 
 
         Marco.setSeed(18);

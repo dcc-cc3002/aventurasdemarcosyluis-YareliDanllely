@@ -1,14 +1,16 @@
 package characters.maincharacter;
 
+import characters.Character;
 import characters.enemies.BooEnemyCharacter;
 import characters.enemies.GoombaEnemyCharacter;
 import characters.enemies.SpinyEnemycharacter;
 import characters.enemies.interfaces.AttackableByBoo;
 import characters.enemies.interfaces.AttackableByGoomba;
 import characters.enemies.interfaces.AttackableBySpiny;
+import characters.enemies.interfaces.Enemies;
 import characters.maincharacter.interfaces.AttackableByLuis;
 import characters.maincharacter.interfaces.AttackOfLuis;
-import characters.Character;
+import characters.visitors.Visitor;
 
 /**
  * Se creo la clase asociada al personaje Luis la cual es hija de
@@ -32,6 +34,8 @@ LuisMainCharacter
     public LuisMainCharacter(int level, int power, int defence, int hitPoints, int hitPointMax, int attackPoints, int attackPointsMax) {
         super(level, power, defence, hitPoints, hitPointMax, attackPoints, attackPointsMax);
     }
+
+
 
     @Override
     public void calculateDamageFromBoo(BooEnemyCharacter Boo) {
@@ -81,6 +85,10 @@ LuisMainCharacter
     }
 
 
+    @Override
+    public void acceptVisitor(Visitor visitor) {
+        visitor.visitLuis(this);
+    }
 }
 
 

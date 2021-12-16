@@ -1,6 +1,7 @@
 package characters.enemies;
 
 import characters.AbstractCharacter;
+import characters.Character;
 import characters.enemies.interfaces.Enemies;
 import characters.maincharacter.interfaces.AttackablebyMarco;
 
@@ -21,6 +22,12 @@ public abstract class AbstractEnemyCharacter extends AbstractCharacter implement
      */
     public AbstractEnemyCharacter(int level, int power, int defence, int hitpPoints, int hitPointMax) {
         super(level, power, defence, hitpPoints, hitPointMax);
+    }
+
+    @Override
+    public boolean iAmEnemy(){
+        return true;
+
     }
 
 }

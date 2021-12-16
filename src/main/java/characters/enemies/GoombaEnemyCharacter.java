@@ -6,6 +6,7 @@ import characters.maincharacter.LuisMainCharacter;
 import characters.maincharacter.MarcosMainCharacter;
 import characters.maincharacter.interfaces.AttackableByLuis;
 import characters.Character;
+import characters.visitors.Visitor;
 
 /***
  * Se creo la clase Goombra que se exiente a la clase AbstractEnemy
@@ -91,6 +92,11 @@ public class GoombaEnemyCharacter extends AbstractEnemyCharacter implements Atta
                else  { this.calculateDamageFromLuisWithJump(luis); } }}
 
 
+    @Override
+    public void acceptVisitor(Visitor visitor) {
+        visitor.visitGoomba(this);
+
+    }
 }
 
 

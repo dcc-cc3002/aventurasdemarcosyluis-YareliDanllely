@@ -6,7 +6,6 @@ import characters.enemies.SpinyEnemycharacter;
 import characters.maincharacter.LuisMainCharacter;
 import characters.maincharacter.MarcosMainCharacter;
 import characters.maincharacter.interfaces.PrincipalCharacter;
-import characters.maincharacter.items.HoneySyrup;
 import characters.maincharacter.items.RedMushroom;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -132,6 +131,41 @@ public class GameControllerTest {
         controller.setTurn(0);
         Assertions.assertEquals(controller.shiftNextCharacter().getClass(),luis.getClass());
     }
+
+    @Test
+    public void TestEndTurn(){
+        controller.createPlayers();
+        random = new Random(1);
+        controller.createEnemiesStructure(random);
+        randomTwo = new Random(556);
+        controller.createEnemiesStructure(randomTwo);
+        randomThree = new Random(435);
+        controller.createEnemiesStructure(randomThree);
+        controller.setTurn(2);
+        Assertions.assertEquals(controller.shiftCharacter(controller.getTurn()).getClass(),goomba.getClass());
+        Assertions.assertEquals(controller.shiftNextCharacter().getClass(),spiny.getClass());
+        controller.endTurn();
+        Assertions.assertEquals(controller.shiftCharacter(controller.getTurn()).getClass(),spiny.getClass() );
+    }
+
+    @Test
+    public void TestThePrincipalCharacterWon(){
+        controller.createPlayers();
+        Assertions.assertEquals(controller.thePrincipalCharacterWon(marco,luis),true);
+        random = new Random(1);
+        controller.createEnemiesStructure(random);
+        randomTwo = new Random(556);
+        controller.createEnemiesStructure(randomTwo);
+        randomThree = new Random(435);
+        controller.createEnemiesStructure(randomThree);
+        Assertions.assertEquals(controller.thePrincipalCharacterWon(marco,luis),false);
+        controller.getPlayer(0).setHitPoints(0);
+        controller.getPlayer(1).setHitPoints(0);
+        controller.removeKoCharacter();
+        Assertions.assertEquals(controller.thePrincipalCharacterWon(marco,luis),false);
+
+    }
+
 
 
 

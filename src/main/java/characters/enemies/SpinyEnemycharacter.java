@@ -6,6 +6,7 @@ import characters.maincharacter.LuisMainCharacter;
 import characters.maincharacter.MarcosMainCharacter;
 import characters.maincharacter.interfaces.AttackableByLuis;
 import characters.Character;
+import characters.visitors.Visitor;
 
 /**
  * Clase Spiny que contiene lo que puede hacer este personaje
@@ -31,7 +32,7 @@ public class SpinyEnemycharacter extends AbstractEnemyCharacter implements Attac
     @Override
     public void calculateDamageFromMarcoWithJump(MarcosMainCharacter marco) {
         marco.setAttackPoints(marco.getAttackPoints()-1);
-        double damageFromJump = this.getHitPoints() - (marco.getPower() * (marco.getLevel()) / marco.getDefence()); this.setHitPoints((int) damageFromJump);
+
     }
 
 
@@ -39,6 +40,7 @@ public class SpinyEnemycharacter extends AbstractEnemyCharacter implements Attac
     public void calculateDamageFromMarcoWithHammer(MarcosMainCharacter marco) {
         marco.setAttackPoints(marco.getAttackPoints()-2);
         double damageFromHammer = this.getHitPoints() - (1.5 * marco.getPower() * (marco.getLevel()) / this.getDefence()); this.setHitPoints((int) damageFromHammer);
+        this.setHitPoints((int) damageFromHammer);
     }
 
     @Override
@@ -51,8 +53,7 @@ public class SpinyEnemycharacter extends AbstractEnemyCharacter implements Attac
     @Override
     public void calculateDamageFromLuisWithJump(LuisMainCharacter luis) {
         luis.setAttackPoints(luis.getAttackPoints()-1);
-        double damageFromHammer = this.getHitPoints() - ( luis.getPower() * (luis.getLevel()) / this.getDefence());
-        this.setHitPoints((int) damageFromHammer);
+
     }
 
 
@@ -89,5 +90,10 @@ public class SpinyEnemycharacter extends AbstractEnemyCharacter implements Attac
     public void attack(AttackableBySpiny enemy) {
         enemy.receivesAttackFromSpiny(this);
 
+    }
+
+    @Override
+    public void acceptVisitor(Visitor visitor) {
+         visitor.visitSpiny(this);
     }
 }

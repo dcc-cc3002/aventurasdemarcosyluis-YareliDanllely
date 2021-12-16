@@ -1,8 +1,9 @@
 package characters.maincharacter.items;
-
-import characters.maincharacter.baul.Baul;
 import characters.maincharacter.interfaces.PrincipalCharacter;
 
+/**
+ * Se creo la clase RedMushroom
+ */
 public class RedMushroom implements Items {
 
     public RedMushroom() {
